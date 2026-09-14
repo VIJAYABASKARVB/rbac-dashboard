@@ -16,7 +16,7 @@ model User {
   teamId    String?
 
   // relation with the team table
-  Team      Team?     @relation(fields: [teamId],references: [id],onDelete: SetNull)
+  team      Team?     @relation(fields: [teamId],references: [id],onDelete: SetNull)
 
   //timestamps
   createdAt DateTime @default(now())
