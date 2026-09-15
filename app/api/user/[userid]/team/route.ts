@@ -9,6 +9,8 @@ export async function PATCH(
   
   try{
     const {userId} = await context.params;
+    console.log("userId:", userId); // add this
+    
     const user = await getCurrentUser();
 
     if(!user || !checkUserPermission(user,Role.ADMIN)){
@@ -17,7 +19,7 @@ export async function PATCH(
         {status:401}
       );
     }
-    const teamId = await request.json();
+    const {teamId} = await request.json();
 
     if (teamId) {
       const team = await prisma.team.findUnique({
