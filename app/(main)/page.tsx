@@ -1,6 +1,9 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Home = async () => {
+
+  const user = false;
 
   return (
     <div className='max-w-4xl mx-auto'>
@@ -46,6 +49,31 @@ const Home = async () => {
           </ul>
         </div>
       </div>
+      {user ? (
+        <div className="flex gap-4">
+          <Link
+            href="/dashboard"
+            className="bg-white text-slate-800 hover:bg-slate-300 px-6 py-3 rounded-lg font-semibold transition-colors"
+          >
+            Go to Dashboard
+          </Link>
+        </div>
+      ) : (
+        <div className="flex gap-4">
+          <Link
+            href="/login"
+            className="bg-white text-slate-800 hover:bg-slate-300 px-6 py-3 rounded-lg font-semibold transition-colors"
+          >
+            Login
+          </Link>
+          <Link
+            href="/register"
+            className="bg-slate-800 border border-slate-700 text-white hover:bg-slate-700 px-6 py-3 rounded-lg font-semibold transition-colors"
+          >
+            Register
+          </Link>
+        </div>
+      )}
     </div>
   )
 }
